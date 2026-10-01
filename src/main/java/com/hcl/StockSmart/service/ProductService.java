@@ -38,8 +38,36 @@ public class ProductService {
         existingProduct.setCategory(updatedProduct.getCategory());
         existingProduct.setPrice(updatedProduct.getPrice());
         existingProduct.setReorderLevel(updatedProduct.getReorderLevel());
+        if (updatedProduct.getBarcode() != null) {
+            existingProduct.setBarcode(updatedProduct.getBarcode());
+        }
+        if (updatedProduct.getRfidTag() != null) {
+            existingProduct.setRfidTag(updatedProduct.getRfidTag());
+        }
 
         return productRepository.save(existingProduct);
+    }
+
+    public Product getProductByBarcode(String barcode) {
+        return productRepository.findByBarcode(barcode)
+                .orElseThrow(() -> new RuntimeException("Product not found with barcode: " + barcode));
+    }
+
+    public Product getProductByRfidTag(String rfidTag) {
+        return productRepository.findByRfidTag(rfidTag)
+                .orElseThrow(() -> new RuntimeException("Product not found with RFID tag: " + rfidTag));
+    }
+
+    public Product updateProductBarcode(Long id, String barcode) {
+        Product product = getProductById(id);
+        product.setBarcode(barcode);
+        return productRepository.save(product);
+    }
+
+    public Product updateProductRfidTag(Long id, String rfidTag) {
+        Product product = getProductById(id);
+        product.setRfidTag(rfidTag);
+        return productRepository.save(product);
     }
 
     public void deleteProduct(Long id) {

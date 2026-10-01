@@ -14,4 +14,9 @@ public interface InventoryRepository extends JpaRepository<Inventory, Long> {
             Product product,
             Location location
     );
+
+    Optional<Inventory> findByProductIdAndLocationId(
+            Long productId,
+            Long locationId
+    );
 }

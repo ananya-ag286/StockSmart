@@ -39,6 +39,30 @@ public class ProductController {
         return productService.updateProduct(id, product);
     }
 
+    @GetMapping("/barcode/{barcode}")
+    public Product getProductByBarcode(@PathVariable String barcode) {
+        return productService.getProductByBarcode(barcode);
+    }
+
+    @GetMapping("/rfid/{rfidTag}")
+    public Product getProductByRfidTag(@PathVariable String rfidTag) {
+        return productService.getProductByRfidTag(rfidTag);
+    }
+
+    @PutMapping("/{id}/barcode")
+    public Product updateProductBarcode(
+            @PathVariable Long id,
+            @RequestParam String barcode) {
+        return productService.updateProductBarcode(id, barcode);
+    }
+
+    @PutMapping("/{id}/rfid")
+    public Product updateProductRfidTag(
+            @PathVariable Long id,
+            @RequestParam String rfidTag) {
+        return productService.updateProductRfidTag(id, rfidTag);
+    }
+
     @DeleteMapping("/{id}")
     public String deleteProduct(@PathVariable Long id) {
 

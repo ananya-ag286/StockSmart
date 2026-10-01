@@ -27,6 +27,12 @@ public class Product {
 
     private Integer reorderLevel;
 
+    @Column(unique = true, nullable = true)
+    private String barcode;
+
+    @Column(unique = true, nullable = true)
+    private String rfidTag;
+
     public Product() {
     }
 
@@ -76,5 +82,21 @@ public class Product {
 
     public void setReorderLevel(Integer reorderLevel) {
         this.reorderLevel = reorderLevel;
+    }
+
+    public String getBarcode() {
+        return barcode;
+    }
+
+    public void setBarcode(String barcode) {
+        this.barcode = barcode;
+    }
+
+    public String getRfidTag() {
+        return rfidTag;
+    }
+
+    public void setRfidTag(String rfidTag) {
+        this.rfidTag = rfidTag;
     }
 }
