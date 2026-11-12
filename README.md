@@ -49,7 +49,7 @@ http://localhost:8081/swagger-ui/index.html
 
 The documentation covers all REST endpoints organized by module — Products, Inventory, Orders, Suppliers, Locations, Purchase Orders, Supplier Products, and Reports — including request parameters, request bodies, and response codes.
 
-![StockSmart Swagger UI](docs/images/swagger-ui.png)
+![StockSmart Swagger UI](docs/images/swagger-ui.jpg)
 
 *Swagger UI provides a live, interactive interface for exploring and testing all StockSmart backend APIs.*
 
