@@ -19,6 +19,42 @@ StockSmart provides a centralized platform to manage products, track stock, hand
 
 ---
 
+## 📸 Screenshots
+
+### Dashboard
+
+![StockSmart Dashboard](docs/images/dashboard.png)
+
+*The Dashboard provides an at-a-glance view of total products, inventory quantity and value, active locations, suppliers, orders, and low-stock alerts — along with a real-time stock distribution breakdown by location.*
+
+---
+
+## 🗄️ Database ER Diagram
+
+![StockSmart Entity Relationship Diagram](docs/images/er-diagram.jpg)
+
+*The ER diagram shows the relationships between the core entities: **Product**, **Inventory**, **Location**, **Supplier**, **Supplier\_Product**, **Order**, **Order\_Item**, **Purchase\_Order**, and **Purchase\_Order\_Item**.*
+
+---
+
+## 📡 API Documentation
+
+StockSmart includes interactive API documentation powered by **Springdoc OpenAPI (Swagger UI)**.
+
+Once the backend is running, open the following URL in your browser:
+
+```
+http://localhost:8081/swagger-ui/index.html
+```
+
+The documentation covers all REST endpoints organized by module — Products, Inventory, Orders, Suppliers, Locations, Purchase Orders, Supplier Products, and Reports — including request parameters, request bodies, and response codes.
+
+![StockSmart Swagger UI](docs/images/swagger-ui.png)
+
+*Swagger UI provides a live, interactive interface for exploring and testing all StockSmart backend APIs.*
+
+---
+
 ## 🛠️ Tech Stack
 
 | Category        | Technologies                                      |
@@ -28,6 +64,7 @@ StockSmart provides a centralized platform to manage products, track stock, hand
 | Database        | MySQL                                             |
 | ORM             | Spring Data JPA, Hibernate                        |
 | API             | RESTful APIs                                      |
+| API Docs        | Springdoc OpenAPI (Swagger UI)                    |
 | Build & Testing | Maven, Postman                                    |
 | Version Control | Git, GitHub                                       |
 
@@ -66,7 +103,7 @@ Controllers  Services  Repositories
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/ananya-ag286/smartstock.git
+git clone https://github.com/ananya-ag286/StockSmart.git
 cd StockSmart
 ```
 
@@ -102,6 +139,8 @@ From the project root:
 
 Backend runs at: **http://localhost:8081**
 
+> Swagger UI available at: **http://localhost:8081/swagger-ui/index.html**
+
 ### 4. Start the Frontend
 
 Open another terminal:
@@ -124,17 +163,18 @@ The backend exposes RESTful APIs for all inventory operations.
 
 **Base URL:** `http://localhost:8081/api`
 
-| Module          | Endpoint                            | Operations                          |
-|-----------------|-------------------------------------|-------------------------------------|
-| Products        | `/api/products`                     | Create, Read, Update, Delete        |
-| Inventory       | `/api/inventory`                    | Stock management                    |
-| Orders          | `/api/orders`                       | Create, Process, Cancel             |
-| Suppliers       | `/api/suppliers`                    | Supplier management                 |
-| Locations       | `/api/locations`                    | Multi-location management           |
-| Purchase Orders | `/api/purchase-orders`              | Procurement and stock receiving     |
-| Reports         | `/api/reports`                      | Inventory analytics and summaries   |
+| Module           | Endpoint                              | Operations                          |
+|------------------|---------------------------------------|-------------------------------------|
+| Products         | `/api/products`                       | Create, Read, Update, Delete        |
+| Inventory        | `/api/inventory`                      | Stock management                    |
+| Orders           | `/api/orders`                         | Create, Process, Cancel             |
+| Suppliers        | `/api/suppliers`                      | Supplier management                 |
+| Locations        | `/api/locations`                      | Multi-location management           |
+| Purchase Orders  | `/api/purchase-orders`                | Procurement and stock receiving     |
+| Supplier Products| `/api/suppliers/{id}/products`        | Supplier-product associations       |
+| Reports          | `/api/reports`                        | Inventory analytics and summaries   |
 
-> APIs can be tested using **Postman**.
+> APIs can be tested using **Postman** or the built-in **Swagger UI** at `/swagger-ui/index.html`.
 
 ---
 
